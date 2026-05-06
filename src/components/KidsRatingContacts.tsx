@@ -241,6 +241,75 @@ function RatingForm() {
   );
 }
 
+function ContactForm() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
+
+  async function handleSubmit() {
+    if (!name.trim() || !message.trim()) return;
+    setStatus('sending');
+    try {
+      const res = await fetch('https://functions.poehali.dev/1ef372bc-e677-4285-86fd-0394e1c6bcd1', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, message }),
+      });
+      if (res.ok) {
+        setStatus('done');
+        setName(''); setEmail(''); setMessage('');
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  if (status === 'done') {
+    return (
+      <div className="text-center py-6 animate-fade-up">
+        <div className="text-5xl mb-3">🌿</div>
+        <h3 className="font-serif text-2xl mb-2" style={{ color: 'hsl(var(--forest))' }}>Сообщение отправлено!</h3>
+        <p className="text-muted-foreground font-sans text-sm">Мы ответим вам в ближайшее время</p>
+        <button onClick={() => setStatus('idle')} className="mt-4 font-sans text-sm underline text-muted-foreground">
+          Отправить ещё
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="space-y-3">
+      <input
+        type="text" placeholder="Ваше имя *" value={name} onChange={e => setName(e.target.value)}
+        className="w-full px-4 py-3 rounded-xl border-2 border-border bg-white/60 font-sans text-sm focus:outline-none focus:border-primary"
+      />
+      <input
+        type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}
+        className="w-full px-4 py-3 rounded-xl border-2 border-border bg-white/60 font-sans text-sm focus:outline-none focus:border-primary"
+      />
+      <textarea
+        placeholder="Ваше сообщение... *" value={message} onChange={e => setMessage(e.target.value)}
+        className="w-full px-4 py-3 rounded-xl border-2 border-border bg-white/60 font-sans text-sm resize-none focus:outline-none focus:border-primary"
+        rows={4}
+      />
+      {status === 'error' && (
+        <p className="font-sans text-sm text-red-500">Ошибка отправки. Попробуйте позже.</p>
+      )}
+      <button
+        onClick={handleSubmit}
+        disabled={status === 'sending' || !name.trim() || !message.trim()}
+        className="w-full py-3 rounded-full font-sans font-medium transition-all hover:scale-[1.02] text-primary-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+        style={{ background: 'hsl(var(--primary))' }}
+      >
+        {status === 'sending' ? 'Отправляем...' : 'Отправить сообщение 🌿'}
+      </button>
+    </div>
+  );
+}
+
 interface KidsRatingContactsProps {
   quizTab: 'quiz' | 'rhyme';
   setQuizTab: (tab: 'quiz' | 'rhyme') => void;
@@ -397,19 +466,7 @@ export default function KidsRatingContacts({ quizTab, setQuizTab, activeRhyme, s
             </div>
             <div className="eco-card rounded-2xl p-8">
               <h3 className="font-serif text-2xl mb-5" style={{ color: 'hsl(var(--forest))' }}>Напишите нам</h3>
-              <div className="space-y-3">
-                <input type="text" placeholder="Ваше имя"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-border bg-white/60 font-sans text-sm focus:outline-none focus:border-primary" />
-                <input type="email" placeholder="Email"
-                  className="w-full px-4 py-3 rounded-xl border-2 border-border bg-white/60 font-sans text-sm focus:outline-none focus:border-primary" />
-                <textarea placeholder="Ваше сообщение..."
-                  className="w-full px-4 py-3 rounded-xl border-2 border-border bg-white/60 font-sans text-sm resize-none focus:outline-none focus:border-primary"
-                  rows={4} />
-                <button className="w-full py-3 rounded-full font-sans font-medium transition-all hover:scale-[1.02] text-primary-foreground"
-                  style={{ background: 'hsl(var(--primary))' }}>
-                  Отправить сообщение 🌿
-                </button>
-              </div>
+              <ContactForm />
             </div>
           </div>
         </div>
