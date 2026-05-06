@@ -4,89 +4,43 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 42 30% 96%;
+    --foreground: 30 25% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 35% 94%;
+    --card-foreground: 30 25% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 35% 94%;
+    --popover-foreground: 30 25% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 125 35% 28%;
+    --primary-foreground: 42 30% 96%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 85 30% 75%;
+    --secondary-foreground: 30 25% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 40 20% 88%;
+    --muted-foreground: 30 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 38 70% 55%;
+    --accent-foreground: 30 25% 10%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 42 30% 96%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 40 25% 80%;
+    --input: 40 25% 80%;
+    --ring: 125 35% 28%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --leaf-green: 125 40% 32%;
+    --moss: 100 30% 38%;
+    --bark: 25 40% 30%;
+    --sand: 40 45% 78%;
+    --cream: 42 50% 93%;
+    --forest: 140 45% 20%;
+    --amber: 38 80% 52%;
   }
 }
 
@@ -97,5 +51,215 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: "Golos Text", sans-serif;
   }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Cormorant Garamond", serif;
+  }
+}
+
+/* Leaf texture background */
+.leaf-bg {
+  background-image:
+    radial-gradient(
+      ellipse at 20% 50%,
+      hsla(125, 40%, 32%, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      hsla(100, 30%, 38%, 0.06) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 60% 80%,
+      hsla(38, 80%, 52%, 0.05) 0%,
+      transparent 40%
+    );
+}
+
+/* Organic blob shape */
+.organic-blob {
+  border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
+}
+
+/* Floating leaf animation */
+@keyframes float-leaf {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+  75% {
+    transform: translateY(4px) rotate(-2deg);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    transform: rotate(3deg);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grow-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes leaf-spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.animate-float {
+  animation: float-leaf 4s ease-in-out infinite;
+}
+.animate-sway {
+  animation: sway 3s ease-in-out infinite;
+}
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out forwards;
+}
+.animate-grow-in {
+  animation: grow-in 0.5s ease-out forwards;
+}
+.animate-leaf-spin {
+  animation: leaf-spin 1s ease-in-out;
+}
+
+/* Stagger delays */
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+.delay-300 {
+  animation-delay: 0.3s;
+}
+.delay-400 {
+  animation-delay: 0.4s;
+}
+.delay-500 {
+  animation-delay: 0.5s;
+}
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Noise texture overlay */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Organic card */
+.eco-card {
+  background: hsla(42, 50%, 95%, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid hsla(100, 30%, 60%, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.eco-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px hsla(125, 40%, 20%, 0.12);
+}
+
+/* Decorative vine line */
+.vine-divider {
+  position: relative;
+  text-align: center;
+}
+
+.vine-divider::before,
+.vine-divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 35%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, hsla(125, 40%, 40%, 0.3));
+}
+
+.vine-divider::before {
+  right: 55%;
+}
+.vine-divider::after {
+  left: 55%;
+  background: linear-gradient(to left, transparent, hsla(125, 40%, 40%, 0.3));
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(42, 30%, 92%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(125, 35%, 55%);
+  border-radius: 3px;
+}
+
+/* Quiz styles */
+.quiz-option {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  background: hsla(125, 40%, 32%, 0.08);
+  border-color: hsl(125, 35%, 40%);
+}
+
+.quiz-option.correct {
+  background: hsla(125, 50%, 40%, 0.15);
+  border-color: hsl(125, 50%, 40%);
+  color: hsl(125, 40%, 25%);
+}
+
+.quiz-option.wrong {
+  background: hsla(0, 60%, 50%, 0.1);
+  border-color: hsl(0, 60%, 50%);
+  color: hsl(0, 50%, 35%);
 }
