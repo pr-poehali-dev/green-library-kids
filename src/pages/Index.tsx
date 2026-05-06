@@ -579,6 +579,40 @@ export default function Index() {
       {/* RATING */}
       <section id="rating" className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
+
+          {/* Баннер "Ваше мнение очень важно" */}
+          <div className="flex justify-center mb-8">
+            <img
+              src="https://cdn.poehali.dev/projects/03625968-f690-4427-b803-87b350efb6e6/bucket/8132b616-1ee5-4944-bec2-a7f5386996dc.png"
+              alt="Ваше мнение очень важно"
+              className="max-h-16 object-contain"
+            />
+          </div>
+
+          {/* QR-коды независимой оценки */}
+          <div className="grid sm:grid-cols-2 gap-6 mb-12">
+            <div className="eco-card rounded-2xl p-6 flex flex-col items-center text-center gap-4">
+              <img
+                src="https://cdn.poehali.dev/projects/03625968-f690-4427-b803-87b350efb6e6/bucket/3b482716-b329-4aca-a36e-f0c9b868bf3a.png"
+                alt="QR-код независимой оценки удовлетворённости"
+                className="w-48 h-48 object-contain"
+              />
+              <p className="font-sans text-sm text-muted-foreground leading-snug">
+                Независимая оценка удовлетворённости граждан работой государственных и муниципальных организаций культуры, искусства и народного творчества
+              </p>
+            </div>
+            <div className="eco-card rounded-2xl p-6 flex flex-col items-center text-center gap-4">
+              <img
+                src="https://cdn.poehali.dev/projects/03625968-f690-4427-b803-87b350efb6e6/bucket/39e4e711-e254-4fba-9af1-1027869698a7.png"
+                alt="QR-код независимой оценки качества"
+                className="w-48 h-48 object-contain"
+              />
+              <p className="font-sans text-sm text-muted-foreground leading-snug">
+                Независимая оценка качества условий оказания услуг
+              </p>
+            </div>
+          </div>
+
           <SectionTitle sub="Что говорят наши читатели">Оценка качества</SectionTitle>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
