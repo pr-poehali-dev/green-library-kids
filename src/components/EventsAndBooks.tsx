@@ -32,16 +32,14 @@ export default function EventsAndBooks() {
           {/* Masonry-style photo gallery */}
           <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
             {[
-              { url: "https://cdn.poehali.dev/files/769137dd-871d-43c9-bda4-59d35ea4b5da.jpg", alt: "Чаепитие с самоваром" },
-              { url: "https://cdn.poehali.dev/files/111f5e85-88f3-4fb3-ba53-507b90a04028.jpg", alt: "Настольные игры" },
-              { url: "https://cdn.poehali.dev/files/082868ee-d117-49f3-8862-7a7231cd993e.jpg", alt: "Библионочь 2025" },
-              { url: "https://cdn.poehali.dev/files/f2210e4f-a277-46da-ab56-553999416f11.jpg", alt: "Мастер-класс по поделкам" },
-              { url: "https://cdn.poehali.dev/files/8e316c7f-3dc8-48bc-8b58-12cbe634523a.jpg", alt: "Научные опыты" },
-              { url: "https://cdn.poehali.dev/files/368f4756-6a44-44e4-97dd-210492e5b92e.jpg", alt: "Изучение природы" },
-              { url: "https://cdn.poehali.dev/files/52a6ed46-9f09-4e9c-b46a-57f61c199d2e.jpg", alt: "Патриотическое мероприятие" },
-              { url: "https://cdn.poehali.dev/files/ced50da2-2e1e-4ea6-bc59-21f8dd2cb970.jpg", alt: "Знакомство с игрушками" },
-              { url: "https://cdn.poehali.dev/files/23bca794-62d0-4f8d-826b-4e083683e07e.jpg", alt: "Выставка книг о космосе" },
-              { url: "https://cdn.poehali.dev/files/858f571e-df6c-46e4-9611-014c06c3f2e6.jpg", alt: "Творческий кружок" },
+              { url: "https://cdn.poehali.dev/files/769137dd-871d-43c9-bda4-59d35ea4b5da.jpg", alt: "Посиделки «В гостях у чая»" },
+              { url: "https://cdn.poehali.dev/files/111f5e85-88f3-4fb3-ba53-507b90a04028.jpg", alt: "Экспериментальная лаборатория «Путешествие капельки»" },
+              { url: "https://cdn.poehali.dev/files/f2210e4f-a277-46da-ab56-553999416f11.jpg", alt: "Турнир «Игротека в библиотеке»" },
+              { url: "https://cdn.poehali.dev/files/368f4756-6a44-44e4-97dd-210492e5b92e.jpg", alt: "Вечер открытых телескопов «Шаги к звёздам»" },
+              { url: "https://cdn.poehali.dev/files/52a6ed46-9f09-4e9c-b46a-57f61c199d2e.jpg", alt: "Всероссийская акция «Библиосумерки» на тему «Свои герои»" },
+              { url: "https://cdn.poehali.dev/files/ced50da2-2e1e-4ea6-bc59-21f8dd2cb970.jpg", alt: "Игровая программа «Тяжело в учении — легко в бою!»" },
+              { url: "https://cdn.poehali.dev/files/23bca794-62d0-4f8d-826b-4e083683e07e.jpg", alt: "Мастер-класс «Где добро — там тепло»" },
+              { url: "https://cdn.poehali.dev/files/858f571e-df6c-46e4-9611-014c06c3f2e6.jpg", alt: "Мастер-класс «Рукотворные чудеса» по ПК" },
             ].map((photo, i) => (
               <div
                 key={i}
