@@ -104,7 +104,7 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
                   </span>
                 </div>
                 <span
-                  className="font-serif text-2xl md:text-4xl font-bold tracking-tight"
+                  className="font-mono text-2xl md:text-4xl font-bold tracking-tight tabular-nums"
                   style={{ color: s.time === 'Выходной' ? 'hsl(0,0%,50%)' : 'hsl(var(--primary))' }}
                 >
                   {s.time}
@@ -112,12 +112,15 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
               </div>
             ))}
           </div>
-          <div className="mt-8 p-5 rounded-2xl text-center"
-            style={{ background: 'hsla(38,80%,52%,0.1)', border: '1px solid hsla(38,80%,52%,0.3)', color: 'hsl(25,40%,30%)' }}>
-            <p className="font-sans text-lg font-bold mb-1">🧹 Последняя пятница каждого месяца — санитарный день</p>
-            <p className="font-sans text-sm font-normal" style={{ color: 'hsl(25,35%,45%)' }}>
-              🌼 В праздничные дни уточняйте расписание по телефону или в наших соцсетях
-            </p>
+          <div className="mt-8 space-y-3">
+            <div className="p-5 rounded-2xl text-center"
+              style={{ background: 'hsla(38,80%,52%,0.1)', border: '1px solid hsla(38,80%,52%,0.3)', color: 'hsl(25,40%,30%)' }}>
+              <p className="font-sans text-lg font-bold">🧹 Последняя пятница каждого месяца — санитарный день</p>
+            </div>
+            <div className="p-4 rounded-2xl text-center"
+              style={{ background: 'hsla(125,40%,32%,0.06)', border: '1px solid hsla(125,40%,32%,0.15)', color: 'hsl(25,35%,45%)' }}>
+              <p className="font-sans text-sm font-normal">🌼 В праздничные дни уточняйте расписание по телефону или в наших соцсетях</p>
+            </div>
           </div>
         </div>
       </section>
