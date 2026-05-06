@@ -653,12 +653,19 @@ export default function Index() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
               {[
-                { icon: "MapPin", label: "Адрес", value: "ул. Зелёная, 42, корп. 1", color: "hsl(125,40%,32%)" },
-                { icon: "Phone", label: "Телефон", value: "+7 (999) 123-45-67", color: "hsl(200,50%,40%)" },
-                { icon: "Mail", label: "Email", value: "hello@ecolib.ru", color: "hsl(38,80%,45%)" },
-                { icon: "Instagram", label: "Соцсети", value: "@ecolibrary", color: "hsl(300,35%,45%)" },
+                { icon: "MapPin", label: "Адрес", value: "ул. Свердлова, 37", color: "hsl(125,40%,32%)", href: "" },
+                { icon: "Phone", label: "Телефон", value: "8(49244) 9-37-28", color: "hsl(200,50%,40%)", href: "tel:84924493728" },
+                { icon: "Mail", label: "Email", value: "eco_lib@mail.ru", color: "hsl(38,80%,45%)", href: "mailto:eco_lib@mail.ru" },
+                { icon: "Users", label: "ВКонтакте", value: "vk.com/eco_lib", color: "hsl(220,60%,45%)", href: "https://vk.com/eco_lib" },
               ].map((c, i) => (
-                <div key={i} className="eco-card rounded-2xl p-5 flex items-center gap-4">
+                <a
+                  key={i}
+                  href={c.href || undefined}
+                  target={c.href?.startsWith('http') ? '_blank' : undefined}
+                  rel={c.href?.startsWith('http') ? 'noopener noreferrer' : undefined}
+                  className="eco-card rounded-2xl p-5 flex items-center gap-4 block transition-all hover:shadow-md"
+                  style={{ textDecoration: 'none' }}
+                >
                   <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: `${c.color.replace(')', ', 0.12)').replace('hsl(', 'hsla(')}` }}>
                     <Icon name={c.icon} size={22} style={{ color: c.color }} />
@@ -667,7 +674,7 @@ export default function Index() {
                     <div className="font-sans text-xs text-muted-foreground uppercase tracking-wider">{c.label}</div>
                     <div className="font-sans font-medium text-foreground">{c.value}</div>
                   </div>
-                </div>
+                </a>
               ))}
             </div>
             <div className="eco-card rounded-2xl p-8">
