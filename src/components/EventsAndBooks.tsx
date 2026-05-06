@@ -40,6 +40,10 @@ export default function EventsAndBooks() {
               { url: "https://cdn.poehali.dev/files/ced50da2-2e1e-4ea6-bc59-21f8dd2cb970.jpg", alt: "Игровая программа «Тяжело в учении — легко в бою!»" },
               { url: "https://cdn.poehali.dev/files/23bca794-62d0-4f8d-826b-4e083683e07e.jpg", alt: "Мастер-класс «Где добро — там тепло»" },
               { url: "https://cdn.poehali.dev/files/858f571e-df6c-46e4-9611-014c06c3f2e6.jpg", alt: "Мастер-класс «Рукотворные чудеса» по ПК" },
+              { url: "https://cdn.poehali.dev/files/f507e3c1-1135-4538-aada-588bcb37a026.jpg", alt: "Мастер-класс «Я дарю тебе ромашку вместе с ней любовь свою!»" },
+              { url: "https://cdn.poehali.dev/files/af519166-440d-4f9c-80dd-605bd137c12c.jpg", alt: "Час полезных советов «Веселее жить, если со спортом дружить»" },
+              { url: "https://cdn.poehali.dev/files/0ddd4a99-bd77-414d-9f61-588fd08174bf.jpg", alt: "Выставка беседа «Королева детективного жанра Агата Кристи»" },
+              { url: "https://cdn.poehali.dev/files/e2e11e23-1ac8-48dc-9439-423f4d54e972.jpg", alt: "Книжная выставка-просмотр «Ступеньки в мир природы»" },
             ].map((photo, i) => (
               <div
                 key={i}
@@ -65,7 +69,7 @@ export default function EventsAndBooks() {
       <section id="books" className="py-24 px-6"
         style={{ background: 'linear-gradient(180deg, hsl(100,25%,92%) 0%, hsl(42,30%,96%) 100%)' }}>
         <div className="max-w-6xl mx-auto">
-          <SectionTitle sub="Лучшие из наших полок">Книги</SectionTitle>
+          <SectionTitle>Книги</SectionTitle>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
             {BOOKS.map((book, i) => (
               <div key={i} className="eco-card rounded-2xl p-6 cursor-pointer group">
@@ -77,22 +81,19 @@ export default function EventsAndBooks() {
                   {book.tag}
                 </div>
                 <h3 className="font-serif text-xl font-semibold" style={{ color: 'hsl(var(--forest))' }}>{book.title}</h3>
-                <p className="font-sans text-sm text-muted-foreground mt-1">{book.author}</p>
-                <button className="mt-4 w-full py-2 rounded-xl border-2 font-sans text-sm font-medium transition-all hover:text-primary-foreground"
-                  style={{ borderColor: 'hsl(var(--border))', color: 'hsl(var(--foreground))' }}
-                  onMouseEnter={e => { (e.target as HTMLElement).style.background = 'hsl(var(--primary))'; (e.target as HTMLElement).style.borderColor = 'hsl(var(--primary))'; (e.target as HTMLElement).style.color = 'hsl(var(--primary-foreground))'; }}
-                  onMouseLeave={e => { (e.target as HTMLElement).style.background = ''; (e.target as HTMLElement).style.borderColor = 'hsl(var(--border))'; (e.target as HTMLElement).style.color = 'hsl(var(--foreground))'; }}
-                >
-                  Взять почитать
-                </button>
               </div>
             ))}
           </div>
           <div className="text-center mt-8">
-            <button className="px-8 py-3 rounded-full font-sans font-medium border-2 transition-all hover:scale-105"
-              style={{ borderColor: 'hsl(var(--primary))', color: 'hsl(var(--primary))' }}>
-              Смотреть весь каталог — 2400+ книг
-            </button>
+            <a
+              href="http://library.vladimir.ru/rguest_aleksandrov.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-3 rounded-full font-sans font-medium border-2 transition-all hover:scale-105"
+              style={{ borderColor: 'hsl(var(--primary))', color: 'hsl(var(--primary))' }}
+            >
+              Смотреть каталог
+            </a>
           </div>
         </div>
       </section>

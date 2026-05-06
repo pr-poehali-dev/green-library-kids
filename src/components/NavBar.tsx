@@ -1,7 +1,6 @@
 import Icon from "@/components/ui/icon";
 
 const NAV_LINKS = [
-  { id: "about", label: "О библиотеке" },
   { id: "schedule", label: "Расписание" },
   { id: "events", label: "Мероприятия" },
   { id: "books", label: "Книги" },
