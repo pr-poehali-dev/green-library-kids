@@ -53,16 +53,13 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
             Детская экологическая<br />
             <em className="text-amber-300">библиотека №1</em>
           </h1>
-          <p className="font-sans text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto animate-fade-up delay-200">
-            Место, где книги встречаются с лесом, а дети открывают тайны живой природы через игры, викторины и увлекательные события
-          </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center animate-fade-up delay-300">
             <button
               onClick={() => scrollTo("books")}
               className="px-8 py-3.5 rounded-full font-sans font-medium text-base transition-all hover:scale-105"
               style={{ background: 'hsl(var(--accent))', color: 'hsl(var(--accent-foreground))' }}
             >
-              Выбрать книгу 📚
+              Книги 📚
             </button>
             <button
               onClick={() => scrollTo("kids")}
@@ -78,83 +75,49 @@ export default function HeroSection({ scrollTo }: HeroSectionProps) {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="py-24 px-6 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full opacity-10 -translate-y-1/2 translate-x-1/2"
-          style={{ background: 'radial-gradient(circle, hsl(125,50%,40%), transparent)' }} />
-        <div className="max-w-6xl mx-auto">
-          <SectionTitle sub="Почему мы особенные">О библиотеке</SectionTitle>
-          <div className="grid md:grid-cols-2 gap-10 items-center">
-            <div className="space-y-5">
-              <p className="font-sans text-lg leading-relaxed text-foreground/80">
-                Мы — первая экологическая библиотека в городе, где каждый уголок создан с любовью к природе.
-                Живые растения, деревянные стеллажи из переработанного дерева и огромная коллекция книг о флоре, фауне и устойчивом развитии.
-              </p>
-              <p className="font-sans text-lg leading-relaxed text-foreground/80">
-                Для детей мы создали особую зону с интерактивными играми об экологии —
-                где учиться беречь природу весело и интересно.
-              </p>
-              <div className="grid grid-cols-3 gap-4 pt-2">
-                {[
-                  { num: "2400+", label: "книг", emoji: "📚" },
-                  { num: "15 лет", label: "работаем", emoji: "🌳" },
-                  { num: "500+", label: "читателей", emoji: "👨‍👩‍👧" },
-                ].map((s, i) => (
-                  <div key={i} className="eco-card rounded-2xl p-4 text-center">
-                    <div className="text-2xl mb-1">{s.emoji}</div>
-                    <div className="font-serif text-2xl font-semibold" style={{ color: 'hsl(var(--primary))' }}>{s.num}</div>
-                    <div className="font-sans text-xs text-muted-foreground">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="relative">
-              <div className="eco-card rounded-3xl overflow-hidden" style={{ boxShadow: '0 20px 60px hsla(125,40%,15%,0.2)' }}>
-                <img
-                  src="https://cdn.poehali.dev/files/0a404bbf-54d7-4f64-b2e7-6f285376ffaf.jpg"
-                  alt="Библиотека"
-                  className="w-full h-80 object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-4 -left-4 eco-card rounded-2xl p-4 flex items-center gap-3"
-                style={{ boxShadow: '0 8px 30px hsla(125,40%,15%,0.15)' }}>
-                <span className="text-3xl">🌿</span>
-                <div>
-                  <div className="font-serif font-semibold" style={{ color: 'hsl(var(--forest))' }}>Эко-пространство</div>
-                  <div className="font-sans text-xs text-muted-foreground">Живые растения повсюду</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* SCHEDULE */}
       <section id="schedule" className="py-24 px-6"
         style={{ background: 'linear-gradient(180deg, hsl(42,30%,96%) 0%, hsl(100,25%,92%) 100%)' }}>
         <div className="max-w-3xl mx-auto">
-          <SectionTitle sub="Когда мы открыты">Расписание</SectionTitle>
-          <div className="space-y-3">
+          <SectionTitle>Расписание</SectionTitle>
+          <div className="space-y-4">
             {SCHEDULE.map((s, i) => (
-              <div key={i} className={`eco-card rounded-2xl p-5 flex items-center justify-between
-                ${s.time === 'Выходной' ? 'opacity-60' : ''}`}>
-                <div className="flex items-center gap-4 flex-1">
-                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center text-xl flex-shrink-0"
-                    style={{ background: 'hsla(125,40%,32%,0.1)' }}>
-                    {s.emoji}
-                  </div>
-                  <div>
-                    <div className="font-sans font-semibold text-foreground">{s.day}</div>
-                    <div className="text-sm text-muted-foreground font-sans">{s.note}</div>
-                  </div>
+              <div
+                key={i}
+                className={`rounded-3xl flex items-center justify-between px-8 py-6 transition-all
+                  ${s.time === 'Выходной'
+                    ? 'opacity-50'
+                    : 'shadow-lg hover:shadow-xl hover:-translate-y-0.5'}`}
+                style={{
+                  background: s.time === 'Выходной'
+                    ? 'hsla(0,0%,60%,0.08)'
+                    : 'linear-gradient(120deg, hsla(125,40%,32%,0.10) 0%, hsla(42,60%,70%,0.18) 100%)',
+                  border: s.time === 'Выходной'
+                    ? '2px solid hsla(0,0%,60%,0.15)'
+                    : '2px solid hsla(125,40%,32%,0.18)',
+                }}
+              >
+                <div className="flex items-center gap-5">
+                  <span className="text-4xl">{s.emoji}</span>
+                  <span className="font-serif text-2xl md:text-3xl font-semibold" style={{ color: 'hsl(var(--forest))' }}>
+                    {s.day}
+                  </span>
                 </div>
-                <div className="font-serif text-2xl font-semibold" style={{ color: 'hsl(var(--primary))' }}>{s.time}</div>
+                <span
+                  className="font-serif text-2xl md:text-4xl font-bold tracking-tight"
+                  style={{ color: s.time === 'Выходной' ? 'hsl(0,0%,50%)' : 'hsl(var(--primary))' }}
+                >
+                  {s.time}
+                </span>
               </div>
             ))}
           </div>
-          <div className="mt-6 p-4 rounded-2xl text-center font-sans text-sm"
+          <div className="mt-8 p-5 rounded-2xl text-center"
             style={{ background: 'hsla(38,80%,52%,0.1)', border: '1px solid hsla(38,80%,52%,0.3)', color: 'hsl(25,40%,30%)' }}>
-            🧹 Последняя пятница каждого месяца — санитарный день
+            <p className="font-sans text-lg font-bold mb-1">🧹 Последняя пятница каждого месяца — санитарный день</p>
+            <p className="font-sans text-sm font-normal" style={{ color: 'hsl(25,35%,45%)' }}>
+              🌼 В праздничные дни уточняйте расписание по телефону или в наших соцсетях
+            </p>
           </div>
         </div>
       </section>

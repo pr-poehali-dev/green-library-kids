@@ -371,7 +371,7 @@ export default function KidsRatingContacts({ quizTab, setQuizTab, activeRhyme, s
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
               {[
-                { icon: "MapPin", label: "Адрес", value: "ул. Свердлова, 37", color: "hsl(125,40%,32%)", href: "" },
+                { icon: "MapPin", label: "Адрес", value: "г. Александров, ул. Свердлова, 37", color: "hsl(125,40%,32%)", href: "" },
                 { icon: "Phone", label: "Телефон", value: "8(49244) 9-37-28", color: "hsl(200,50%,40%)", href: "tel:84924493728" },
                 { icon: "Mail", label: "Email", value: "eco_lib@mail.ru", color: "hsl(38,80%,45%)", href: "mailto:eco_lib@mail.ru" },
                 { icon: "Users", label: "ВКонтакте", value: "vk.com/eco_lib", color: "hsl(220,60%,45%)", href: "https://vk.com/eco_lib" },
