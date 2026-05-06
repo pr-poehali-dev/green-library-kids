@@ -30,9 +30,10 @@ const EVENTS = [
 ];
 
 const SCHEDULE = [
-  { day: "Пн–Пт", time: "9:00 – 20:00", note: "Читальный зал + выдача книг", emoji: "🌅" },
-  { day: "Суббота", time: "10:00 – 18:00", note: "Детские программы 12:00–16:00", emoji: "🌞" },
-  { day: "Воскресенье", time: "11:00 – 17:00", note: "Тихий день, мероприятия", emoji: "🌿" },
+  { day: "Понедельник", time: "Выходной", note: "", emoji: "😴" },
+  { day: "Вт – Пт", time: "10:00 – 19:00", note: "", emoji: "🌅" },
+  { day: "Суббота", time: "10:00 – 17:00", note: "", emoji: "🌞" },
+  { day: "Воскресенье", time: "10:00 – 17:00", note: "", emoji: "🌿" },
 ];
 
 const QUIZ_QUESTIONS = [
@@ -357,10 +358,6 @@ export default function Index() {
         <FloatingLeaf style={{ bottom: '30%', left: '15%', animationDelay: '0.8s', fontSize: '2.5rem' }} />
         <FloatingLeaf style={{ bottom: '20%', right: '8%', animationDelay: '2s', fontSize: '1.8rem' }} />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 font-sans text-sm font-medium animate-fade-up"
-            style={{ background: 'hsla(42,80%,70%,0.2)', border: '1px solid hsla(42,80%,70%,0.4)', color: 'hsl(42,80%,88%)' }}>
-            🌱 Живая книжная экосистема
-          </div>
           <h1 className="font-serif text-5xl md:text-7xl font-semibold text-white leading-tight mb-6 animate-fade-up delay-100">
             Детская экологическая<br />
             <em className="text-amber-300">библиотека №1</em>
@@ -436,7 +433,7 @@ export default function Index() {
       <section id="schedule" className="py-24 px-6"
         style={{ background: 'linear-gradient(180deg, hsl(42,30%,96%) 0%, hsl(100,25%,92%) 100%)' }}>
         <div className="max-w-3xl mx-auto">
-          <SectionTitle sub="Когда мы работаем">Расписание</SectionTitle>
+          <SectionTitle sub="Когда мы работаем">График работы библиотеки</SectionTitle>
           <div className="space-y-4">
             {SCHEDULE.map((s, i) => (
               <div key={i} className="eco-card rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center gap-4">
@@ -456,7 +453,7 @@ export default function Index() {
           </div>
           <div className="mt-6 p-4 rounded-2xl text-center font-sans text-sm"
             style={{ background: 'hsla(38,80%,52%,0.1)', border: '1px solid hsla(38,80%,52%,0.3)', color: 'hsl(25,40%,30%)' }}>
-            🌼 В праздничные дни уточняйте расписание по телефону или в наших соцсетях
+            🧹 Последняя пятница каждого месяца — санитарный день
           </div>
         </div>
       </section>
