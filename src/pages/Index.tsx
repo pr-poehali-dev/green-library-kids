@@ -362,8 +362,8 @@ export default function Index() {
             🌱 Живая книжная экосистема
           </div>
           <h1 className="font-serif text-5xl md:text-7xl font-semibold text-white leading-tight mb-6 animate-fade-up delay-100">
-            Библиотека,<br />
-            <em className="text-amber-300">дышащая</em> природой
+            Детская экологическая<br />
+            <em className="text-amber-300">библиотека №1</em>
           </h1>
           <p className="font-sans text-lg md:text-xl text-white/80 mb-8 max-w-2xl mx-auto animate-fade-up delay-200">
             Место, где книги встречаются с лесом, а дети открывают тайны живой природы через игры, викторины и увлекательные события
