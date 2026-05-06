@@ -461,23 +461,36 @@ export default function Index() {
       {/* EVENTS */}
       <section id="events" className="py-24 px-6">
         <div className="max-w-6xl mx-auto">
-          <SectionTitle sub="Ближайшие события">Мероприятия</SectionTitle>
-          <div className="grid md:grid-cols-2 gap-5">
-            {EVENTS.map((ev, i) => (
-              <div key={i} className="eco-card rounded-2xl p-6 flex gap-5 items-start">
-                <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center"
-                  style={{ background: `hsla(125,40%,32%,0.1)` }}>
-                  <Icon name={ev.icon} size={26} style={{ color: ev.color }} />
+          <SectionTitle>Мероприятия</SectionTitle>
+
+          {/* Masonry-style photo gallery */}
+          <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+            {[
+              { url: "https://cdn.poehali.dev/files/769137dd-871d-43c9-bda4-59d35ea4b5da.jpg", alt: "Чаепитие с самоваром" },
+              { url: "https://cdn.poehali.dev/files/111f5e85-88f3-4fb3-ba53-507b90a04028.jpg", alt: "Настольные игры" },
+              { url: "https://cdn.poehali.dev/files/082868ee-d117-49f3-8862-7a7231cd993e.jpg", alt: "Библионочь 2025" },
+              { url: "https://cdn.poehali.dev/files/f2210e4f-a277-46da-ab56-553999416f11.jpg", alt: "Мастер-класс по поделкам" },
+              { url: "https://cdn.poehali.dev/files/8e316c7f-3dc8-48bc-8b58-12cbe634523a.jpg", alt: "Научные опыты" },
+              { url: "https://cdn.poehali.dev/files/368f4756-6a44-44e4-97dd-210492e5b92e.jpg", alt: "Изучение природы" },
+              { url: "https://cdn.poehali.dev/files/52a6ed46-9f09-4e9c-b46a-57f61c199d2e.jpg", alt: "Патриотическое мероприятие" },
+              { url: "https://cdn.poehali.dev/files/ced50da2-2e1e-4ea6-bc59-21f8dd2cb970.jpg", alt: "Знакомство с игрушками" },
+              { url: "https://cdn.poehali.dev/files/23bca794-62d0-4f8d-826b-4e083683e07e.jpg", alt: "Выставка книг о космосе" },
+              { url: "https://cdn.poehali.dev/files/858f571e-df6c-46e4-9611-014c06c3f2e6.jpg", alt: "Творческий кружок" },
+            ].map((photo, i) => (
+              <div
+                key={i}
+                className="break-inside-avoid rounded-2xl overflow-hidden group relative cursor-pointer"
+                style={{ boxShadow: '0 4px 20px hsla(125,40%,15%,0.12)' }}
+              >
+                <img
+                  src={photo.url}
+                  alt={photo.alt}
+                  className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end"
+                  style={{ background: 'linear-gradient(to top, hsla(125,45%,15%,0.7) 0%, transparent 60%)' }}>
+                  <p className="text-white font-sans text-sm font-medium p-4">{photo.alt}</p>
                 </div>
-                <div className="flex-1">
-                  <div className="font-hand text-base mb-1" style={{ color: 'hsl(var(--moss))' }}>{ev.date}</div>
-                  <h3 className="font-serif text-xl font-semibold mb-1" style={{ color: 'hsl(var(--forest))' }}>{ev.title}</h3>
-                  <p className="font-sans text-sm text-muted-foreground">{ev.desc}</p>
-                </div>
-                <button className="flex-shrink-0 px-4 py-2 rounded-full font-sans text-sm font-medium transition-all hover:scale-105 text-primary-foreground"
-                  style={{ background: 'hsl(var(--primary))' }}>
-                  Записаться
-                </button>
               </div>
             ))}
           </div>
